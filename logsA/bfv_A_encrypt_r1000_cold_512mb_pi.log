@@ -1,0 +1,8 @@
+========================================
+A Encryption-Only Benchmark Report
+========================================
+[TIMER] A_encrypt_profile | total: 13442650 us | repetitions: 1000 | avg: 13442.6 us | min: 13339 us | max: 14125 us | cipher bytes: 526449
+[SUMMARY] size sink: 8917689245 double sink: 500000
+scheme,metric,repetitions,cache_mode,cache_mb,profile_size,total_us,avg_us,min_us,max_us,cipher_bytes
+BFV,A_encrypt_profile,1000,cold,512,96,13442650,13442.650,13339,14125,526449
+

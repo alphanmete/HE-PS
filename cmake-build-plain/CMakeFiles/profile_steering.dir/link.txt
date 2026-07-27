@@ -1,0 +1,2 @@
+/usr/bin/ar qc libprofile_steering.a CMakeFiles/profile_steering.dir/src/ProfileSteering.cpp.o CMakeFiles/profile_steering.dir/src/ProfileSteeringPSM.cpp.o CMakeFiles/profile_steering.dir/src/Household.cpp.o CMakeFiles/profile_steering.dir/src/SecureAggregator.cpp.o CMakeFiles/profile_steering.dir/src/Devices.cpp.o CMakeFiles/profile_steering.dir/src/OptAlg.cpp.o
+/usr/bin/ranlib libprofile_steering.a

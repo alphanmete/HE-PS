@@ -1,0 +1,76 @@
+[INFO] H/B/C full-convergence benchmark
+[INFO] Scheme: PLAIN
+[INFO] Households: 50
+[INFO] Simulations: 1000
+[INFO] Cache mode: cold
+[INFO] Cold mode flushes cache once before each simulation, matching full-run benchmark style.
+[INFO] H timers measure household planning/acceptance and, for HE builds, household encryption.
+[INFO] B timers measure aggregation by initializing from the first submitted vector/ciphertext and adding only remaining submissions.
+[INFO] C timers measure coordinator decrypt and control logic only.
+[INFO] A, the standalone PC/Raspberry Pi encryption-only benchmark, should still be run separately.
+
+
+========================================
+H/B/C Full-Convergence Benchmark Report
+========================================
+[TIMER] H_initial_device_planning | total: 563357 us | count: 50000 | avg: 11.2671 us
+[TIMER] H_encrypt_X_i | total: 0 us | count: 0 | avg: 0 us
+[TIMER] H_plan_compute | total: 3774971 us | count: 214550 | avg: 17.5948 us
+[TIMER] H_accept_compute | total: 408 us | count: 82994 | avg: 0.00491602 us
+[TIMER] H_encrypt_delta_i | total: 0 us | count: 0 | avg: 0 us
+[TIMER] H_total_household_side | total: 4338736 us | count: 1000 | avg: 4338.74 us
+[TIMER] B_init_X_from_first_ciphertext | total: 1 us | count: 1000 | avg: 0.001 us
+[TIMER] B_add_X_remaining | total: 2202 us | count: 49000 | avg: 0.0449388 us
+[TIMER] B_init_delta_from_first_ciphertext | total: 0 us | count: 4130 | avg: 0 us
+[TIMER] B_add_delta_remaining | total: 1831 us | count: 78864 | avg: 0.0232172 us
+[TIMER] B_total_aggregation | total: 4034 us | count: 1000 | avg: 4.034 us
+[TIMER] C_decrypt_X | total: 0 us | count: 0 | avg: 0 us
+[TIMER] C_decrypt_delta | total: 0 us | count: 0 | avg: 0 us
+[TIMER] C_control_logic_until_convergence | total: 1290 us | count: 4291 | avg: 0.300629 us
+[TIMER] C_total_decrypt_plus_control | total: 1290 us | count: 1000 | avg: 1.29 us
+[TIMER] SIM_total_measured_H_B_C | total: 4344060 us | count: 1000 | avg: 4344.06 us
+[SUMMARY] total iterations: 4291
+[SUMMARY] avg iterations per simulation: 4.291
+[SUMMARY] accepted delta ciphertexts/plain updates: 82994
+[SUMMARY] avg accepted deltas per simulation: 82.994
+[SUMMARY] checksum: 2.75271e+08
+[SUMMARY] size sink: 0 double sink: 0
+scheme,metric,households,simulations,cache_mode,total_us,avg_us,count,cipher_bytes
+PLAIN,H_initial_device_planning,50,1000,cold,563357,11.267,50000,0
+PLAIN,H_encrypt_X_i,50,1000,cold,0,0.000,0,0
+PLAIN,H_plan_compute,50,1000,cold,3774971,17.595,214550,0
+PLAIN,H_accept_compute,50,1000,cold,408,0.005,82994,0
+PLAIN,H_encrypt_delta_i,50,1000,cold,0,0.000,0,0
+PLAIN,H_total_household_side,50,1000,cold,4338736,4338.736,1000,0
+PLAIN,B_init_X_from_first_ciphertext,50,1000,cold,1,0.001,1000,0
+PLAIN,B_add_X_remaining,50,1000,cold,2202,0.045,49000,0
+PLAIN,B_init_delta_from_first_ciphertext,50,1000,cold,0,0.000,4130,0
+PLAIN,B_add_delta_remaining,50,1000,cold,1831,0.023,78864,0
+PLAIN,B_total_aggregation,50,1000,cold,4034,4.034,1000,0
+PLAIN,C_decrypt_X,50,1000,cold,0,0.000,0,0
+PLAIN,C_decrypt_delta,50,1000,cold,0,0.000,0,0
+PLAIN,C_control_logic_until_convergence,50,1000,cold,1290,0.301,4291,0
+PLAIN,C_total_decrypt_plus_control,50,1000,cold,1290,1.290,1000,0
+PLAIN,SIM_total_measured_H_B_C,50,1000,cold,4344060,4344.060,1000,0
+SUMMARY,total_iterations,50,1000,cold,4291,4.291,1000,0
+SUMMARY,accepted_delta_count,50,1000,cold,82994,82.994,1000,0
+
+ Performance counter stats for './cmake-build-plain/he_component_bench 50 1000 cold quiet':
+
+    25,508,625,419      task-clock                       #    1.000 CPUs utilized             
+               253      context-switches                 #    9.918 /sec                      
+                10      cpu-migrations                   #    0.392 /sec                      
+           131,403      page-faults                      #    5.151 K/sec                     
+   104,542,160,580      instructions                     #    0.90  insn per cycle            
+                                                  #    0.02  stalled cycles per insn   
+   115,966,076,466      cycles                           #    4.546 GHz                       
+     2,435,497,333      stalled-cycles-frontend          #    2.10% frontend cycles idle      
+    17,019,177,831      branches                         #  667.193 M/sec                     
+       188,248,093      branch-misses                    #    1.11% of all branches           
+
+      25.515179564 seconds time elapsed
+
+      25.218157000 seconds user
+       0.288910000 seconds sys
+
+

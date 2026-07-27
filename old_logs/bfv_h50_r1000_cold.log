@@ -1,0 +1,51 @@
+[INFO] Component benchmark
+[INFO] Scheme: BFV
+[INFO] Households: 50
+[INFO] Repetitions: 1000
+[INFO] Cache mode: cold
+
+
+========================================
+Component Benchmark Report
+========================================
+[TIMER] household_encrypt_X_i | total: 2711076 us | calls: 1000 | avg: 2711.08 us | cipher bytes: 526449
+[TIMER] household_encrypt_delta_i | total: 2704344 us | calls: 1000 | avg: 2704.34 us | cipher bytes: 526449
+[TIMER] aggregator_zero_init_for_X | total: 2701199 us | calls: 1000 | avg: 2701.2 us | cipher bytes: 526449
+[TIMER] aggregator_add_encrypted_X_i | total: 2520268 us | calls: 1000 | avg: 2520.27 us | cipher bytes: 526449
+[TIMER] aggregator_zero_init_for_delta | total: 2699191 us | calls: 1000 | avg: 2699.19 us | cipher bytes: 526449
+[TIMER] aggregator_add_encrypted_delta_i | total: 2543902 us | calls: 1000 | avg: 2543.9 us | cipher bytes: 526449
+[TIMER] coordinator_decrypt_X | total: 1053261 us | calls: 1000 | avg: 1053.26 us
+[TIMER] coordinator_decrypt_delta | total: 1052069 us | calls: 1000 | avg: 1052.07 us
+[TIMER] coordinator_one_psm_steering_round | total: 1323204 us | calls: 1000 | avg: 1323.2 us
+Checksum sink: 3.15715e+07
+Size sink: 3158694000
+scheme,part,households,repetitions,cache_mode,total_us,avg_us,calls,cipher_bytes
+BFV,household_encrypt_X_i,50,1000,cold,2711076,2711.08,1000,526449
+BFV,household_encrypt_delta_i,50,1000,cold,2704344,2704.34,1000,526449
+BFV,aggregator_zero_init_for_X,50,1000,cold,2701199,2701.2,1000,526449
+BFV,aggregator_add_encrypted_X_i,50,1000,cold,2520268,2520.27,1000,526449
+BFV,aggregator_zero_init_for_delta,50,1000,cold,2699191,2699.19,1000,526449
+BFV,aggregator_add_encrypted_delta_i,50,1000,cold,2543902,2543.9,1000,526449
+BFV,coordinator_decrypt_X,50,1000,cold,1053261,1053.26,1000,0
+BFV,coordinator_decrypt_delta,50,1000,cold,1052069,1052.07,1000,0
+BFV,coordinator_one_psm_steering_round,50,1000,cold,1323204,1323.2,1000,0
+
+ Performance counter stats for './cmake-build-bfv/he_component_bench 50 1000 cold':
+
+   214,514,485,540      task-clock                       #    1.000 CPUs utilized             
+             2,621      context-switches                 #   12.218 /sec                      
+               660      cpu-migrations                   #    3.077 /sec                      
+           136,148      page-faults                      #  634.680 /sec                      
+   944,306,619,696      instructions                     #    0.98  insn per cycle            
+                                                  #    0.71  stalled cycles per insn   
+   963,522,930,856      cycles                           #    4.492 GHz                       
+   674,772,929,684      stalled-cycles-frontend          #   70.03% frontend cycles idle      
+   101,835,442,128      branches                         #  474.725 M/sec                     
+       298,508,179      branch-misses                    #    0.29% of all branches           
+
+     214.582339683 seconds time elapsed
+
+     214.081900000 seconds user
+       0.429881000 seconds sys
+
+

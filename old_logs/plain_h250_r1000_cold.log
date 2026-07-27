@@ -1,0 +1,47 @@
+[INFO] Component benchmark
+[INFO] Scheme: PLAIN
+[INFO] Households: 250
+[INFO] Repetitions: 1000
+[INFO] Cache mode: cold
+
+
+========================================
+Component Benchmark Report
+========================================
+[TIMER] household_encrypt_X_i | total: 0 us | calls: 1000 | avg: 0 us
+[TIMER] household_encrypt_delta_i | total: 0 us | calls: 1000 | avg: 0 us
+[TIMER] aggregator_add_plain_X_i | total: 9269 us | calls: 1000 | avg: 9.269 us
+[TIMER] aggregator_add_plain_delta_i | total: 9201 us | calls: 1000 | avg: 9.201 us
+[TIMER] coordinator_decrypt_X | total: 0 us | calls: 1000 | avg: 0 us
+[TIMER] coordinator_decrypt_delta | total: 0 us | calls: 1000 | avg: 0 us
+[TIMER] coordinator_one_psm_steering_round | total: 5723542 us | calls: 1000 | avg: 5723.54 us
+Checksum sink: 1.53602e+08
+Size sink: 0
+scheme,part,households,repetitions,cache_mode,total_us,avg_us,calls,cipher_bytes
+PLAIN,household_encrypt_X_i,250,1000,cold,0,0,1000,0
+PLAIN,household_encrypt_delta_i,250,1000,cold,0,0,1000,0
+PLAIN,aggregator_add_plain_X_i,250,1000,cold,9269,9.269,1000,0
+PLAIN,aggregator_add_plain_delta_i,250,1000,cold,9201,9.201,1000,0
+PLAIN,coordinator_decrypt_X,250,1000,cold,0,0,1000,0
+PLAIN,coordinator_decrypt_delta,250,1000,cold,0,0,1000,0
+PLAIN,coordinator_one_psm_steering_round,250,1000,cold,5723542,5723.54,1000,0
+
+ Performance counter stats for './cmake-build-plain/he_component_bench 250 1000 cold':
+
+    69,170,326,360      task-clock                       #    1.000 CPUs utilized             
+               939      context-switches                 #   13.575 /sec                      
+               288      cpu-migrations                   #    4.164 /sec                      
+           131,796      page-faults                      #    1.905 K/sec                     
+   224,331,859,581      instructions                     #    0.72  insn per cycle            
+                                                  #    0.02  stalled cycles per insn   
+   312,494,102,808      cycles                           #    4.518 GHz                       
+     3,689,144,549      stalled-cycles-frontend          #    1.18% frontend cycles idle      
+    34,245,360,402      branches                         #  495.087 M/sec                     
+       261,964,613      branch-misses                    #    0.76% of all branches           
+
+      69.197950706 seconds time elapsed
+
+      68.891370000 seconds user
+       0.280915000 seconds sys
+
+

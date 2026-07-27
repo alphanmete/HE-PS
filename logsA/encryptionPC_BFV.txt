@@ -1,0 +1,19 @@
+./cmake-build-bfv/he_encrypt_bench 1000 cold
+[INFO] A encryption-only benchmark
+[INFO] Scheme: BFV
+[INFO] Repetitions: 1000
+[INFO] Cache mode: cold
+[INFO] Cache flush size: 512 MB
+[INFO] Profile size: 96
+[INFO] Timed operation: encode + encrypt one 96-value plaintext profile.
+[INFO] HE setup/key generation is excluded from timing.
+[INFO] Aggregation, decryption, and Profile Steering are excluded.
+
+========================================
+A Encryption-Only Benchmark Report
+========================================
+[TIMER] A_encrypt_profile | total: 2762311 us | repetitions: 1000 | avg: 2762.31 us | min: 2641 us | max: 4235 us | cipher bytes: 526449
+[SUMMARY] size sink: 8917689245 double sink: 500000
+scheme,metric,repetitions,cache_mode,cache_mb,profile_size,total_us,avg_us,min_us,max_us,cipher_bytes
+BFV,A_encrypt_profile,1000,cold,512,96,2762311,2762.311,2641,4235,526449
+

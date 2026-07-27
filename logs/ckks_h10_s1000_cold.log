@@ -1,0 +1,76 @@
+[INFO] H/B/C full-convergence benchmark
+[INFO] Scheme: CKKS
+[INFO] Households: 10
+[INFO] Simulations: 1000
+[INFO] Cache mode: cold
+[INFO] Cold mode flushes cache once before each simulation, matching full-run benchmark style.
+[INFO] H timers measure household planning/acceptance and, for HE builds, household encryption.
+[INFO] B timers measure aggregation by initializing from the first submitted vector/ciphertext and adding only remaining submissions.
+[INFO] C timers measure coordinator decrypt and control logic only.
+[INFO] A, the standalone PC/Raspberry Pi encryption-only benchmark, should still be run separately.
+
+
+========================================
+H/B/C Full-Convergence Benchmark Report
+========================================
+[TIMER] H_initial_device_planning | total: 148718 us | count: 10000 | avg: 14.8718 us
+[TIMER] H_encrypt_X_i | total: 30844710 us | count: 10000 | avg: 3084.47 us | cipher bytes: 394865
+[TIMER] H_plan_compute | total: 2957238 us | count: 110250 | avg: 26.823 us
+[TIMER] H_accept_compute | total: 757 us | count: 24630 | avg: 0.0307349 us
+[TIMER] H_encrypt_delta_i | total: 75028899 us | count: 24630 | avg: 3046.24 us | cipher bytes: 394865
+[TIMER] H_total_household_side | total: 108980322 us | count: 1000 | avg: 108980 us | cipher bytes: 394865
+[TIMER] B_init_X_from_first_ciphertext | total: 30961 us | count: 1000 | avg: 30.961 us | cipher bytes: 394865
+[TIMER] B_add_X_remaining | total: 356367 us | count: 9000 | avg: 39.5963 us | cipher bytes: 394865
+[TIMER] B_init_delta_from_first_ciphertext | total: 114380 us | count: 11023 | avg: 10.3765 us | cipher bytes: 394865
+[TIMER] B_add_delta_remaining | total: 517624 us | count: 13607 | avg: 38.041 us | cipher bytes: 394865
+[TIMER] B_total_aggregation | total: 1019332 us | count: 1000 | avg: 1019.33 us | cipher bytes: 394865
+[TIMER] C_decrypt_X | total: 870635 us | count: 1000 | avg: 870.635 us
+[TIMER] C_decrypt_delta | total: 9254086 us | count: 11023 | avg: 839.525 us
+[TIMER] C_control_logic_until_convergence | total: 641 us | count: 11025 | avg: 0.0581406 us
+[TIMER] C_total_decrypt_plus_control | total: 10125362 us | count: 1000 | avg: 10125.4 us
+[TIMER] SIM_total_measured_H_B_C | total: 120125016 us | count: 1000 | avg: 120125 us | cipher bytes: 394865
+[SUMMARY] total iterations: 11025
+[SUMMARY] avg iterations per simulation: 11.025
+[SUMMARY] accepted delta ciphertexts/plain updates: 24630
+[SUMMARY] avg accepted deltas per simulation: 24.63
+[SUMMARY] checksum: 5.50524e+07
+[SUMMARY] size sink: 0 double sink: 0
+scheme,metric,households,simulations,cache_mode,total_us,avg_us,count,cipher_bytes
+CKKS,H_initial_device_planning,10,1000,cold,148718,14.872,10000,0
+CKKS,H_encrypt_X_i,10,1000,cold,30844710,3084.471,10000,394865
+CKKS,H_plan_compute,10,1000,cold,2957238,26.823,110250,0
+CKKS,H_accept_compute,10,1000,cold,757,0.031,24630,0
+CKKS,H_encrypt_delta_i,10,1000,cold,75028899,3046.240,24630,394865
+CKKS,H_total_household_side,10,1000,cold,108980322,108980.322,1000,394865
+CKKS,B_init_X_from_first_ciphertext,10,1000,cold,30961,30.961,1000,394865
+CKKS,B_add_X_remaining,10,1000,cold,356367,39.596,9000,394865
+CKKS,B_init_delta_from_first_ciphertext,10,1000,cold,114380,10.376,11023,394865
+CKKS,B_add_delta_remaining,10,1000,cold,517624,38.041,13607,394865
+CKKS,B_total_aggregation,10,1000,cold,1019332,1019.332,1000,394865
+CKKS,C_decrypt_X,10,1000,cold,870635,870.635,1000,0
+CKKS,C_decrypt_delta,10,1000,cold,9254086,839.525,11023,0
+CKKS,C_control_logic_until_convergence,10,1000,cold,641,0.058,11025,0
+CKKS,C_total_decrypt_plus_control,10,1000,cold,10125362,10125.362,1000,0
+CKKS,SIM_total_measured_H_B_C,10,1000,cold,120125016,120125.016,1000,394865
+SUMMARY,total_iterations,10,1000,cold,11025,11.025,1000,0
+SUMMARY,accepted_delta_count,10,1000,cold,24630,24.630,1000,0
+
+ Performance counter stats for './cmake-build-ckks/he_component_bench 10 1000 cold quiet':
+
+   142,848,139,184      task-clock                       #    1.000 CPUs utilized             
+             1,573      context-switches                 #   11.012 /sec                      
+                19      cpu-migrations                   #    0.133 /sec                      
+           136,342      page-faults                      #  954.454 /sec                      
+ 2,043,449,062,157      instructions                     #    3.21  insn per cycle            
+                                                  #    0.01  stalled cycles per insn   
+   637,549,272,587      cycles                           #    4.463 GHz                       
+    22,822,964,838      stalled-cycles-frontend          #    3.58% frontend cycles idle      
+   128,804,338,675      branches                         #  901.687 M/sec                     
+     3,062,330,187      branch-misses                    #    2.38% of all branches           
+
+     142.876526009 seconds time elapsed
+
+     142.186603000 seconds user
+       0.650828000 seconds sys
+
+

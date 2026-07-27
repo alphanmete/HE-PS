@@ -1,0 +1,51 @@
+[INFO] Component benchmark
+[INFO] Scheme: CKKS
+[INFO] Households: 10
+[INFO] Repetitions: 1000
+[INFO] Cache mode: cold
+
+
+========================================
+Component Benchmark Report
+========================================
+[TIMER] household_encrypt_X_i | total: 3157809 us | calls: 1000 | avg: 3157.81 us | cipher bytes: 394865
+[TIMER] household_encrypt_delta_i | total: 3147761 us | calls: 1000 | avg: 3147.76 us | cipher bytes: 394865
+[TIMER] aggregator_zero_init_for_X | total: 3045462 us | calls: 1000 | avg: 3045.46 us | cipher bytes: 394865
+[TIMER] aggregator_add_encrypted_X_i | total: 378044 us | calls: 1000 | avg: 378.044 us | cipher bytes: 394865
+[TIMER] aggregator_zero_init_for_delta | total: 3039665 us | calls: 1000 | avg: 3039.66 us | cipher bytes: 394865
+[TIMER] aggregator_add_encrypted_delta_i | total: 373769 us | calls: 1000 | avg: 373.769 us | cipher bytes: 394865
+[TIMER] coordinator_decrypt_X | total: 889562 us | calls: 1000 | avg: 889.562 us
+[TIMER] coordinator_decrypt_delta | total: 891352 us | calls: 1000 | avg: 891.352 us
+[TIMER] coordinator_one_psm_steering_round | total: 268089 us | calls: 1000 | avg: 268.089 us
+Checksum sink: 7.87631e+06
+Size sink: 2369190000
+scheme,part,households,repetitions,cache_mode,total_us,avg_us,calls,cipher_bytes
+CKKS,household_encrypt_X_i,10,1000,cold,3157809,3157.81,1000,394865
+CKKS,household_encrypt_delta_i,10,1000,cold,3147761,3147.76,1000,394865
+CKKS,aggregator_zero_init_for_X,10,1000,cold,3045462,3045.46,1000,394865
+CKKS,aggregator_add_encrypted_X_i,10,1000,cold,378044,378.044,1000,394865
+CKKS,aggregator_zero_init_for_delta,10,1000,cold,3039665,3039.66,1000,394865
+CKKS,aggregator_add_encrypted_delta_i,10,1000,cold,373769,373.769,1000,394865
+CKKS,coordinator_decrypt_X,10,1000,cold,889562,889.562,1000,0
+CKKS,coordinator_decrypt_delta,10,1000,cold,891352,891.352,1000,0
+CKKS,coordinator_one_psm_steering_round,10,1000,cold,268089,268.089,1000,0
+
+ Performance counter stats for './cmake-build-ckks/he_component_bench 10 1000 cold':
+
+   211,511,413,144      task-clock                       #    1.000 CPUs utilized             
+             2,730      context-switches                 #   12.907 /sec                      
+               732      cpu-migrations                   #    3.461 /sec                      
+           134,646      page-faults                      #  636.590 /sec                      
+   884,574,575,489      instructions                     #    0.93  insn per cycle            
+                                                  #    0.01  stalled cycles per insn   
+   955,496,813,807      cycles                           #    4.517 GHz                       
+     7,000,816,184      stalled-cycles-frontend          #    0.73% frontend cycles idle      
+    97,249,919,154      branches                         #  459.786 M/sec                     
+       523,530,371      branch-misses                    #    0.54% of all branches           
+
+     211.583166825 seconds time elapsed
+
+     211.086827000 seconds user
+       0.422871000 seconds sys
+
+
